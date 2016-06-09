@@ -1,0 +1,47 @@
+doctype html
+html(ng-app='pokeapi')
+    head
+        title Pokemon API
+        link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', rel='stylesheet')
+        link(href='/css/styles.css', rel='stylesheet')
+    body
+        layout-directive
+            nav.navbar.navbar-inverse.navbar-fixed-top
+                .container
+                    .navbar-header
+                        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+                            span.sr-only Toggle navigation
+                            span.icon-bar
+                            span.icon-bar
+                            span.icon-bar
+                        a.navbar-brand#pokeInicio(href='/') Pokemon API
+
+                    //- #navbar.navbar-collapse.collapse
+                        form.navbar-form.navbar-right(ng-submit='layout.getPokemon()')
+                            .form-group
+                                input.form-control(ng-model='layout.pokeId', type='text', placeholder='Numero de Pokemon')
+
+                            button.btn.btn-primary(type='submit', style='margin-left: 5px;') Go on!
+                                span.glyphicon.glyphicon-thumbs-up
+
+            .jumbotron
+                .container
+                    .row
+                        .col-md-4.col-md-offset-4
+                            form(ng-submit='layout.getPokemon()')
+                                .form-group
+                                    input.form-control(ng-model='layout.pokeId', type='text', placeholder='Name or Number')
+
+                                button.btn.btn-primary#goOn(type='submit', style='margin-left: 5px;') Go on!
+                                    span.glyphicon.glyphicon-thumbs-up
+
+            .container
+
+                    pre
+                        {{layout.pokemon | json}}
+
+        script(src='/angular/angular.min.js')
+        script(src='/js/app.js')
+        script(src='/js/directives/layoutDirective.js')
+        script(src='https://code.jquery.com/jquery-2.2.4.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')

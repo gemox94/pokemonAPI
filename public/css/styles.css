@@ -1,0 +1,21 @@
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.jumbotron{
+    background-image: url('/img/pokemon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 400px;
+    background-color: white;
+}
+
+#goOn{
+    background: #2F499B;
+}
+
+#goOn:hover{
+    color: #FFC702;
+    border: 2px solid #FFC702;
+}
