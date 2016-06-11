@@ -27,20 +27,17 @@
                 data: {
                     pokeId: layout.pokeId
                 }
-            });/*then(postSuccess, postError);
+            }).then(postSuccess, postError);
 
             function postSuccess(response){
-                // layout.pokemon = response;
+                layout.pokemon = response;
                 console.log(response);
             }
 
             function postError(error){
                 console.log(error);
-            }*/
+            }
         }//Closing layout.getPokemon()
-        layout.pokemon.then(function(results){
-            console.log(results);
-        });
 
 
     }// Closing layoutController
