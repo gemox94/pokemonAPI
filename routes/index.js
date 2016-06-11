@@ -8,11 +8,21 @@ router.get('/',function(req, res, next){
 });
 
 router.post('/pokemon',function(req, res, next){
-    let url = `http://pokeapi.co/api/v2/pokemon/${req.body.pokeId}/`;
-    request(url).pipe(res);
-    /*console.log(req.body.pokeId);
-    let cadena =  `Recibi el ID: ${req.body.pokeId}`;
-    res.send(cadena);*/
+
+    return new Promise(function(resolve, reject){
+        let url = `http://pokeapi.co/api/v2/pokemon/${req.body.pokeId}/`;
+        request(url, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log(response);
+                resolve(response);
+            }
+            else{
+                console.log('Error');
+                reject(new Error('An error has ocurred'));
+            }
+        })
+
+    });
 });
 
 module.exports = router;
